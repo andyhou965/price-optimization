@@ -18,14 +18,20 @@ def fun_optimize(var_opt, var_range, var_cost, df):
         df ([type]): [The data set for our usecase]
 
     Returns:
-        [list]: [Returns a dataframe for table, 
-                chart for Price Vs Quantity, 
-                chart for optimized quantity set for maximum revenue, 
+        [list]: [Returns a dataframe for table,
+                chart for Price Vs Quantity,
+                chart for optimized quantity set for maximum revenue,
                 Optimized value of revenue]
     """
 
     fig_PriceVsQuantity = px.scatter(
-        df, x="Price", y="Quantity", color="Year", trendline="ols")
+        df,
+        x="Price",
+        y="Quantity",
+        color="Year",
+        trendline="ols",
+        template="plotly_dark",
+    )
 
     # fit OLS model
     model = ols("Price ~ Quantity ", data=df).fit()
@@ -40,26 +46,41 @@ def fun_optimize(var_opt, var_range, var_cost, df):
         Revenue.append((i) * (demand - cost))
 
     # create data frame of price and revenue
-    profit = pd.DataFrame(
-        {"Price": Price, "Quantity": Quantity, "Revenue": Revenue})
+    profit = pd.DataFrame({"Price": Price, "Quantity": Quantity, "Revenue": Revenue})
 
     max_val = profit.loc[(profit['Revenue'] == profit['Revenue'].max())]
-    
 
     fig_QuantityVsRevenue = go.Figure()
-    fig_QuantityVsRevenue.add_trace(go.Scatter(
-        x=profit['Quantity'], y=profit['Revenue']))
-    fig_QuantityVsRevenue.add_annotation(x=int(max_val['Quantity']), y=int(max_val['Revenue']),
-                                         text="Maximum Revenue",
-                                         showarrow=True,
-                                         arrowhead=1)
+    fig_QuantityVsRevenue.add_trace(
+        go.Scatter(x=profit['Quantity'], y=profit['Revenue'])
+    )
+    fig_QuantityVsRevenue.add_annotation(
+        x=int(max_val['Quantity']),
+        y=int(max_val['Revenue']),
+        text="Maximum Revenue",
+        showarrow=True,
+        arrowhead=1,
+    )
 
     fig_QuantityVsRevenue.update_layout(
         showlegend=False,
         xaxis_title="Quantity",
-        yaxis_title="Revenue")
+        yaxis_title="Revenue",
+        template="plotly_dark",
+    )
 
-    fig_QuantityVsRevenue.add_vline(x=int(max_val['Quantity']), line_width=2, line_dash="dash",
-                                    line_color="red", opacity=0.25)
+    fig_QuantityVsRevenue.add_vline(
+        x=int(max_val['Quantity']),
+        line_width=2,
+        line_dash="dash",
+        line_color="red",
+        opacity=0.25,
+    )
 
-    return [profit, fig_QuantityVsRevenue, fig_PriceVsQuantity, round(max_val['Quantity'].values[0],2), round(max_val['Revenue'].values[0],3)]
+    return [
+        profit,
+        fig_QuantityVsRevenue,
+        fig_PriceVsQuantity,
+        round(max_val['Quantity'].values[0], 2),
+        round(max_val['Revenue'].values[0], 3),
+    ]

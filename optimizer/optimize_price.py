@@ -28,7 +28,12 @@ def fun_optimize(var_opt, var_range, var_cost, df):
     """
 
     fig_PriceVsQuantity = px.scatter(
-        df, x="Price", y="Quantity", color="Year", trendline="ols"
+        df,
+        x="Price",
+        y="Quantity",
+        color="Year",
+        trendline="ols",
+        template="plotly_dark",
     )
 
     # fit OLS model
@@ -58,17 +63,19 @@ def fun_optimize(var_opt, var_range, var_cost, df):
     )
 
     fig_PriceVsRevenue.update_layout(
-        showlegend=False, xaxis_title="Price", yaxis_title="Revenue"
+        showlegend=False,
+        xaxis_title="Price",
+        yaxis_title="Revenue",
+        template="plotly_dark",
     )
 
     fig_PriceVsRevenue.add_vline(
         x=int(max_val['Price']),
         line_width=2,
         line_dash="dash",
-        line_color="red",
-        opacity=0.25,
+        line_color="#fec036",
+        opacity=0.80,
     )
-
     # Identify the optimal price at which the revenue is maximum
     # profit[profit['Revenue'] == profit['Revenue'].max()]
     # pd.set_option('display.max_rows', profit.shape[0]+1)

@@ -73,13 +73,6 @@ APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 root_layout = html.Div(
     id="root",
     children=[
-        dcc.Store(id="store-placeholder"),
-        dcc.Store(
-            id="store-data",
-            data={},
-        ),
-        # For the case no components were clicked, we need to know what type of graph to preserve
-        dcc.Store(id="store-data-config", data={"info_type": "", "satellite_type": 0}),
         side_panel_layout,
         main_panel_layout,
     ],

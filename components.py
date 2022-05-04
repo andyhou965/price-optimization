@@ -45,25 +45,7 @@ histogram_price_quantity = html.Div(
         dcc.Graph(
             id="lineChart2",
             className="histogram-graph",
-            # figure={
-            #     "data": [
-            #         {
-            #             "x": [i for i in range(60)],
-            #             "y": [i for i in range(60)],
-            #             "type": "scatter",
-            #             "marker": {"color": "#fec036"},
-            #         }
-            #     ],
-            #     "layout": {
-            #         "margin": {"t": 30, "r": 35, "b": 40, "l": 50},
-            #         "xaxis": {"dtick": 5, "gridcolor": "#636363", "showline": False},
-            #         "yaxis": {"showgrid": False},
-            #         "plot_bgcolor": "#2b2b2b",
-            #         "paper_bgcolor": "#2b2b2b",
-            #         "font": {"color": "gray"},
-            #     },
-            # },
-            # config={"displayModeBar": False},
+            config={"displayModeBar": False, 'displaylogo': False},
         ),
     ],
 )
@@ -81,25 +63,7 @@ histogram_max_revenue = html.Div(
         dcc.Graph(
             id="lineChart1",
             className="histogram-graph",
-            # figure={
-            #     "data": [
-            #         {
-            #             "x": [i for i in range(60)],
-            #             "y": [i for i in range(60)],
-            #             "type": "scatter",
-            #             "marker": {"color": "#fec036"},
-            #         }
-            #     ],
-            #     "layout": {
-            #         "margin": {"t": 30, "r": 35, "b": 40, "l": 50},
-            #         "xaxis": {"dtick": 5, "gridcolor": "#636363", "showline": False},
-            #         "yaxis": {"showgrid": False},
-            #         "plot_bgcolor": "#2b2b2b",
-            #         "paper_bgcolor": "#2b2b2b",
-            #         "font": {"color": "gray"},
-            #     },
-            # },
-            # config={"displayModeBar": False},
+            config={"displayModeBar": False, 'displaylogo': False},
         ),
     ],
 )
@@ -136,14 +100,14 @@ data_table_result = html.Div(
             style_data_conditional=[
                 {
                     'if': {'row_index': 'odd'},
-                    'backgroundColor': 'rgb(248, 248, 248)',
+                    'backgroundColor': 'rgb(60, 60, 60)',
                 },
                 {
                     'if': {
                         'row_index': 0,  # number | 'odd' | 'even'
                         'column_id': 'Revenue',
                     },
-                    'backgroundColor': 'dodgerblue',
+                    'backgroundColor': '#fec036',
                     'color': 'white',
                 },
                 {
@@ -151,7 +115,7 @@ data_table_result = html.Div(
                         'row_index': 0,  # number | 'odd' | 'even'
                         'column_id': 'Price',
                     },
-                    'backgroundColor': 'dodgerblue',
+                    'backgroundColor': '#fec036',
                     'color': 'white',
                 },
                 {
@@ -159,20 +123,27 @@ data_table_result = html.Div(
                         'row_index': 0,  # number | 'odd' | 'even'
                         'column_id': 'Quantity',
                     },
-                    'backgroundColor': 'dodgerblue',
+                    'backgroundColor': '#fec036',
                     'color': 'white',
                 },
             ],
             style_header={
-                'backgroundColor': 'rgb(230, 230, 230)',
+                'backgroundColor': 'rgb(0, 0, 0)',
                 'fontWeight': 'bold',
+                'color': 'white',
+                'fontSize': "1rem",
+                'textAlign': 'center',
                 # 'border': '1px solid black'
             },
             style_data={
+                'backgroundColor': 'rgb(30, 30, 30)',
+                'color': 'white',
+                'fontSize': "0.9rem",
                 'whiteSpace': 'normal',
                 'height': 'auto',
+                'textAlign': 'left',
             },
-            editable=True,
+            # editable=True,
             filter_action="native",
             sort_action="native",
             page_size=10,
