@@ -2,7 +2,7 @@
 
 ### Preview
 
-![Satellite Dashboard](screenshots/screenshot.png)
+![Price Optimization APP](screenshots/screenshot.png)
 
 ### Running the app locally
 
