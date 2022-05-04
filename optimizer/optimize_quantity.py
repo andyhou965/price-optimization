@@ -73,8 +73,8 @@ def fun_optimize(var_opt, var_range, var_cost, df):
         x=int(max_val['Quantity']),
         line_width=2,
         line_dash="dash",
-        line_color="red",
-        opacity=0.25,
+        line_color="#fec036",
+        opacity=0.80,
     )
 
     return [

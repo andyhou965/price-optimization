@@ -12,17 +12,18 @@ from optimizer import optimize_price
 from optimizer import optimize_quantity
 import dash_daq as daq
 
+APP_PATH = str(pathlib.Path(__file__).parent.resolve())
+
 app = dash.Dash(
     __name__,
     meta_tags=[
         {"name": "viewport", "content": "width=device-width, initial-scale=1.0"}
     ],
 )
-
+app._favicon = os.path.join(APP_PATH, os.path.join("assets", "favicom.ico"))
 app.title = "Price Optimization Application"
 server = app.server
 app.config["suppress_callback_exceptions"] = True
-APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
 # Load the data
 df = pd.read_csv(os.path.join(APP_PATH, os.path.join("data", "price.csv")))

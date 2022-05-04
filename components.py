@@ -28,7 +28,7 @@ range_slider = dcc.RangeSlider(
 )
 
 numeric_input = daq.NumericInput(
-    id='selected-cost-opt', size=200, min=0, max=10000, value=80
+    id='selected-cost-opt', size=190, min=0, max=10000, value=80
 )
 
 # Histogram
@@ -144,7 +144,7 @@ data_table_result = html.Div(
                 'textAlign': 'left',
             },
             # editable=True,
-            filter_action="native",
+            # filter_action="native",
             sort_action="native",
             page_size=10,
         ),
