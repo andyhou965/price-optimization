@@ -12,7 +12,7 @@ dropdown = dcc.Dropdown(
     className="dropdown-component",
     options=[
         {"label": "Price", "value": "price"},
-        {"label": "Quantity", "value": "quantity"},
+        # {"label": "Quantity", "value": "quantity"},
     ],
     clearable=False,
     value="price",

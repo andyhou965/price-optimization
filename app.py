@@ -31,7 +31,8 @@ df = pd.read_csv(os.path.join(APP_PATH, os.path.join("data", "price.csv")))
 side_panel_layout = html.Div(
     id="panel-side",
     children=[
-        html.H1(id="title", children=["Price & Quantity Optimization"]),
+        # html.H1(id="title", children=["Price & Quantity Optimization"]),
+        html.H1(id="title", children=["Price Optimization"]),
         html.Div(id="dropdown", children=dropdown),
         html.Br(),
         html.H3("Optimization Range"),
