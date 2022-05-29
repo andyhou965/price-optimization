@@ -162,4 +162,4 @@ def update_output_all(var_opt, var_range, var_cost):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True, dev_tools_ui=False)
+    app.run_server(port=8001, debug=True, dev_tools_ui=False)
