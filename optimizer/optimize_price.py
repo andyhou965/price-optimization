@@ -3,9 +3,6 @@ from statsmodels.formula.api import ols
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Load the data
-df = pd.read_csv('Data/price.csv')
-
 
 def fun_optimize(var_opt, var_range, var_cost, df):
     """[summary]
