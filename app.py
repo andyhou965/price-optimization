@@ -20,7 +20,7 @@ app = dash.Dash(
         {"name": "viewport", "content": "width=device-width, initial-scale=1.0"}
     ],
 )
-app._favicon = os.path.join(APP_PATH, os.path.join("assets", "favicon.ico"))
+# app._favicon = os.path.join(APP_PATH, os.path.join("assets", "favicon.ico"))
 app.title = "Price Optimization Application"
 server = app.server
 app.config["suppress_callback_exceptions"] = True
