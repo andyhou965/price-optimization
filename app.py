@@ -20,7 +20,7 @@ app = dash.Dash(
         {"name": "viewport", "content": "width=device-width, initial-scale=1.0"}
     ],
 )
-app._favicon = os.path.join(APP_PATH, os.path.join("assets", "favicom.ico"))
+app._favicon = os.path.join(APP_PATH, os.path.join("assets", "favicon.ico"))
 app.title = "Price Optimization Application"
 server = app.server
 app.config["suppress_callback_exceptions"] = True
@@ -162,4 +162,4 @@ def update_output_all(var_opt, var_range, var_cost):
 
 
 if __name__ == "__main__":
-    app.run_server(port=8001, debug=True, dev_tools_ui=False)
+    app.run_server(host="0.0.0.0", port=8001, dev_tools_ui=False)
