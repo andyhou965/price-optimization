@@ -8,8 +8,8 @@ import pandas as pd
 import numpy as np
 import logging
 from dash.dependencies import Input, Output
-from optimizer import optimize_price
-from optimizer import optimize_quantity
+import optimize_price
+import optimize_quantity
 import dash_daq as daq
 
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
