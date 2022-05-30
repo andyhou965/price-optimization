@@ -1,4 +1,3 @@
-from turtle import st
 from dash import dcc
 from dash import html
 from dash import dash_table
