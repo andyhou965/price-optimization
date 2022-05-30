@@ -8,8 +8,8 @@ import pandas as pd
 import numpy as np
 import logging
 from dash.dependencies import Input, Output
-import optimize_price
-import optimize_quantity
+from optimizer import optimize_price
+from optimizer import optimize_quantity
 import dash_daq as daq
 
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
@@ -162,4 +162,10 @@ def update_output_all(var_opt, var_range, var_cost):
 
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(
+        debug=True,
+        host="0.0.0.0",
+        port=8002,
+        dev_tools_hot_reload=True,
+        dev_tools_ui=False,
+    )
