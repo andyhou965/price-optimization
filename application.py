@@ -14,16 +14,16 @@ import dash_daq as daq
 
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
-app = dash.Dash(
+application = dash.Dash(
     __name__,
     meta_tags=[
         {"name": "viewport", "content": "width=device-width, initial-scale=1.0"}
     ],
 )
-# app._favicon = os.path.join(APP_PATH, os.path.join("assets", "favicon.ico"))
-app.title = "Price Optimization Application"
-server = app.server
-app.config["suppress_callback_exceptions"] = True
+application._favicon = os.path.join(APP_PATH, os.path.join("assets", "favicon.ico"))
+application.title = "Price Optimization Application"
+server = application.server
+application.config["suppress_callback_exceptions"] = True
 
 # Load the data
 df = pd.read_csv(os.path.join(APP_PATH, os.path.join("data", "price.csv")))
@@ -80,10 +80,10 @@ root_layout = html.Div(
     ],
 )
 
-app.layout = root_layout
+application.layout = root_layout
 
 
-# @app.callback(
+# @application.callback(
 #     dash.dependencies.Output('output-container-range-slider', 'children'),
 #     [dash.dependencies.Input('my-range-slider', 'value')],
 # )
@@ -91,7 +91,7 @@ app.layout = root_layout
 #     return "{}".format(value)
 
 
-@app.callback(
+@application.callback(
     [
         Output("heatmap", 'data'),
         Output("lineChart1", 'figure'),
@@ -162,7 +162,7 @@ def update_output_all(var_opt, var_range, var_cost):
 
 
 if __name__ == "__main__":
-    app.run_server(
+    application.run_server(
         debug=True,
         host="0.0.0.0",
         port=8002,
